@@ -1,0 +1,12 @@
+2019-11-18 16:25:41 INFO  Log:13 - Starting Testing ...
+2019-11-18 16:25:41 INFO  Log:23 - Opening the Driver
+2019-11-18 16:25:45 INFO  Log:23 - Deleting Cookies
+2019-11-18 16:25:45 INFO  Log:23 - Maximizing the browser window
+2019-11-18 16:25:45 INFO  Log:23 - Applying the implicit wait during 90 seconds
+2019-11-18 16:25:45 INFO  Log:23 - Open the web site to test
+2019-11-18 16:25:52 INFO  Log:23 - Taking first screenshot
+2019-11-18 16:25:53 INFO  Log:23 - Initialize the Page Objects
+2019-11-18 16:25:53 INFO  Log:23 - Test1 executed
+2019-11-18 16:25:53 INFO  Log:23 - Test2 executed
+2019-11-18 16:25:53 INFO  Log:23 - Finalize the Page Objects
+2019-11-18 16:25:53 INFO  Log:18 - Ending Testing ...
