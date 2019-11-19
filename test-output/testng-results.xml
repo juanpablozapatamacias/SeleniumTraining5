@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="27" started-at="2019-11-18T22:25:53Z" finished-at="2019-11-18T22:25:53Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="27" started-at="2019-11-18T22:25:53Z" finished-at="2019-11-18T22:25:53Z">
+      <class name="training.selenium.test.FirstTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:training.selenium.test.FirstTest@3159c4b8]" name="setup" is-config="true" duration-ms="11470" started-at="2019-11-18T22:25:41Z" finished-at="2019-11-18T22:25:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method status="PASS" signature="Test1()[pri:0, instance:training.selenium.test.FirstTest@3159c4b8]" name="Test1" duration-ms="5" started-at="2019-11-18T22:25:53Z" finished-at="2019-11-18T22:25:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test1 -->
+        <test-method status="PASS" signature="Test2()[pri:0, instance:training.selenium.test.FirstTest@3159c4b8]" name="Test2" duration-ms="4" started-at="2019-11-18T22:25:53Z" finished-at="2019-11-18T22:25:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test2 -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:training.selenium.test.FirstTest@3159c4b8]" name="teardown" is-config="true" duration-ms="105" started-at="2019-11-18T22:25:53Z" finished-at="2019-11-18T22:25:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- teardown -->
+      </class> <!-- training.selenium.test.FirstTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
