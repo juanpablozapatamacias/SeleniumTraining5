@@ -116,7 +116,7 @@ public class BasePage {
 	}
 	
 	public WebDriver connectDriver() {
-		System.getProperty("browser","");
+		System.setProperty("browser","chrome");
 		
 		Properties propSystem = System.getProperties();
 		Enumeration e = propSystem.propertyNames();

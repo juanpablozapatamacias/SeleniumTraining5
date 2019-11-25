@@ -3,8 +3,9 @@ package training.selenium.utilities;
 import java.awt.*;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-
+import java.io.InputStream;
 import java.text.SimpleDateFormat;
 
 import org.monte.media.Format;
@@ -114,4 +115,16 @@ public class CommonUtilities {
 		catch(Exception e) {}
 	}
 	
+	public static Properties loadProperties(String path) {
+		try (InputStream input = new FileInputStream(path)){
+			Properties prop = new Properties();
+			prop.load(input);
+			
+			return prop;
+		}
+		catch(IOException e){
+			e.printStackTrace();
+		}
+		return null;
+	}
 }

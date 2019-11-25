@@ -1,5 +1,6 @@
 package training.selenium.base;
 
+import java.util.Properties;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.WebDriver;
@@ -14,7 +15,8 @@ import training.selenium.utilities.Log;
 
 public class BaseTest extends BasePage{
 	
-	private WebDriver driver;
+	protected WebDriver driver;
+	protected Properties propi;
 	
 	private HomePage homePage;
 	
@@ -35,7 +37,10 @@ public class BaseTest extends BasePage{
 		driver.manage().timeouts().implicitlyWait(90, TimeUnit.SECONDS);
 		
 		Log.info("Open the web site to test");
-		driver.navigate().to("http://blazedemo.com/");
+		driver.navigate().to("https://todoist.com");
+		
+		Log.info("Set the Credentials propeties");
+		propi = CommonUtilities.loadProperties(System.getProperty("user.dir") + "/src/main/resources/creds.properties");
 		
 		Log.info("Taking first screenshot");
 		CommonUtilities.takeScreenshot(driver, System.getProperty("user.dir") + "/screenshots/", "OpenURL");
@@ -57,6 +62,7 @@ public class BaseTest extends BasePage{
 		}
 		finally {
 			if(driver !=null) {
+				propi = null;
 				driver.quit();
 				driver = null;
 			}
