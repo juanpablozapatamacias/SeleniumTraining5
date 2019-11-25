@@ -39,7 +39,7 @@ public class FirstTest extends BaseTest{
 	@Test(dependsOnMethods="getMessageLogin")
 	public void addNewTasks() {
 		Log.info("Add new tasks ...");
-		Assert.assertEquals(task.addTask("Test task 1"), true);
+		Assert.assertEquals(task.addTask("Test task 3"), true);
 	}
 	
 	

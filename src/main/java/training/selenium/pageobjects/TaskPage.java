@@ -16,19 +16,11 @@ public class TaskPage extends BasePage {
 	WebElement eleAddTaskButton;
 	WebElement eleDetails;
 	
-	By byMessageHeader = By.cssSelector(".empty-state-illustration");
-	By byAddTaskLink= By.linkText("Add task");
+	By byMessageHeader = By.cssSelector(".section_header");
+	By byAddTaskLink= By.cssSelector(".agenda_add_task > a");
+	//By byFillTaskText = By.cssSelector("div.public-DraftEditorPlaceholder-root");
 	
-	By byFillTaskText = By.cssSelector("div.main_content "
-			+ "div.section_day "
-			+ "ul.items.day_list.ul_today:nth-child(2) "
-			+ "li.manager form.item_editor "
-			+ "div.item_editor_details "
-			+ "div.richtextinput.item_editor_input "
-			+ "div.DraftEditor-root div.DraftEditor-editorContainer "
-			+ "div.notranslate.public-DraftEditor-content div:nth-child(1) "
-			+ "div:nth-child(1) "
-			+ "div.public-DraftStyleDefault-block.public-DraftStyleDefault-ltr > span:nth-child(1)");
+	By byFillTaskText= By.xpath("//div[@role=\'textbox\']");
 	
 	By byAddTaskButton = By.cssSelector(".item_editor_submit");
 	By byTaskElementsDetails = By.cssSelector(".task_item_details");
@@ -52,15 +44,20 @@ public class TaskPage extends BasePage {
 		CommonUtilities.sleepByNSeconds(1);
 		
 		Log.info("Fill the name of the task");
-		eleFillTaskText = getElement(byFillTaskText,3);
+		eleFillTaskText = getElementPresenceOfElementLocated(byFillTaskText,3);
 		eleFillTaskText.sendKeys(value);
+		CommonUtilities.sleepByNSeconds(1);
 		
 		Log.info("Click to Add the new task");
 		eleAddTaskButton = getElement(byAddTaskButton,3);
 		eleAddTaskButton.click();
+		CommonUtilities.sleepByNSeconds(1);
 		
 		Log.info("Get task elements details");
 		eleDetails = getElement(byTaskElementsDetails,3);
+		CommonUtilities.sleepByNSeconds(1);
+		
 		return eleDetails.isDisplayed();
+		
 	}
 }
