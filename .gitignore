@@ -1,0 +1,9 @@
+/target/
+/Log4j/
+/drivers/
+/test-output/
+/screenshots/
+/.classpath
+/.project
+/.settings/
+/bin/
