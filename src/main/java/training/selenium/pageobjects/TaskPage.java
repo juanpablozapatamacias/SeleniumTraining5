@@ -34,6 +34,7 @@ public class TaskPage extends BasePage {
 		ele = getElement(byMessageHeader,3);
 		CommonUtilities.sleepByNSeconds(3);
 		
+		CommonUtilities.takeScreenshot(driver, pathScreenshots, "TaskMessageHeader");
 		return ele.isDisplayed();
 	}
 	
@@ -43,10 +44,14 @@ public class TaskPage extends BasePage {
 		eleAddTask.click();
 		CommonUtilities.sleepByNSeconds(1);
 		
+		CommonUtilities.takeScreenshot(driver, pathScreenshots, "ClickTaskLink");
+		
 		Log.info("Fill the name of the task");
 		eleFillTaskText = getElementPresenceOfElementLocated(byFillTaskText,3);
 		eleFillTaskText.sendKeys(value);
 		CommonUtilities.sleepByNSeconds(1);
+		
+		CommonUtilities.takeScreenshot(driver, pathScreenshots, "FillTaskName");
 		
 		Log.info("Click to Add the new task");
 		eleAddTaskButton = getElement(byAddTaskButton,3);
@@ -57,7 +62,8 @@ public class TaskPage extends BasePage {
 		eleDetails = getElement(byTaskElementsDetails,3);
 		CommonUtilities.sleepByNSeconds(1);
 		
-		return eleDetails.isDisplayed();
+		CommonUtilities.takeScreenshot(driver, pathScreenshots, "GetTaskElements");
 		
+		return eleDetails.isDisplayed();
 	}
 }

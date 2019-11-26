@@ -10,6 +10,7 @@ import training.selenium.utilities.Log;
 
 public class LoginPage extends BasePage {
 	
+	
 	WebElement ele;
 	
 	By byUsernameField = By.cssSelector("#email");
@@ -41,6 +42,9 @@ public class LoginPage extends BasePage {
 		ele = getElement(bySubmit,3);
 		ele.submit();
 		CommonUtilities.sleepByNSeconds(1);
+		
+		Log.info("Taking screenshot in Login frame");
+		CommonUtilities.takeScreenshot(driver, pathScreenshots, "LoginForm");
 		
 		Log.info("Switch to default frame");
 		driver.switchTo().defaultContent();

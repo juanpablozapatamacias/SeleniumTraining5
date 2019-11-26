@@ -30,8 +30,11 @@ public class HomePage extends BasePage {
 	public LoginPage switchToLoginFrame() {
 		Log.info("Switch to Login page in a frame");
 		frame = getElement(byLoginPageFrame,3);
+		
 		driver.switchTo().frame(frame);
 		CommonUtilities.sleepByNSeconds(1);
+		
+		CommonUtilities.takeScreenshot(driver, pathScreenshots, "HomePage");
 		return new LoginPage(driver);
 	}
 	

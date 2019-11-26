@@ -16,7 +16,6 @@ import training.selenium.utilities.Log;
 public class BaseTest extends BasePage{
 	
 	protected WebDriver driver;
-	protected Properties propi;
 	
 	private HomePage homePage;
 	
@@ -39,11 +38,11 @@ public class BaseTest extends BasePage{
 		Log.info("Open the web site to test");
 		driver.navigate().to("https://todoist.com");
 		
-		Log.info("Set the Credentials propeties");
-		propi = CommonUtilities.loadProperties(System.getProperty("user.dir") + "/src/main/resources/creds.properties");
+		//Log.info("Set the Credentials propeties");
+		//propi = CommonUtilities.loadProperties(projectPath + "/src/main/resources/creds.properties");
 		
 		Log.info("Taking first screenshot");
-		CommonUtilities.takeScreenshot(driver, System.getProperty("user.dir") + "/screenshots/", "OpenURL");
+		CommonUtilities.takeScreenshot(driver, projectPath + "/screenshots/", "OpenURL");
 		
 		Log.info("Initialize the Page Objects");
 		initBaseTest();

@@ -33,6 +33,11 @@ public class BasePage {
 	protected WebElement ele;
 	protected List<WebElement> listEle;
 	
+	protected String projectPath = System.getProperty("user.dir");
+	protected String pathScreenshots = projectPath + "/screenshots/";
+	
+	protected Properties propi;
+	
 	int attempts;
 	
 	public BasePage() {}
@@ -116,7 +121,7 @@ public class BasePage {
 	}
 	
 	public WebDriver connectDriver() {
-		System.setProperty("browser","chrome");
+		String propBrowser = System.getProperty("browser","chrome");
 		
 		Properties propSystem = System.getProperties();
 		Enumeration e = propSystem.propertyNames();
@@ -124,8 +129,8 @@ public class BasePage {
 		Map<String,String> propMap = new HashMap<String, String>();
 		propMap = CommonUtilities.putSysProps(e, propSystem);
 		
-		String projectPath = propMap.get("user.dir");
-		String propBrowser = propMap.get("browser").trim().toLowerCase();
+		projectPath = propMap.get("user.dir");
+		//propBrowser = propMap.get("browser").trim().toLowerCase();
 		String os = propMap.get("os.name").trim().toLowerCase();
 				 
 		if (propBrowser.isEmpty() || propBrowser == null){
@@ -136,16 +141,20 @@ public class BasePage {
 			String https_proxy = System.getProperty("https_proxy", "");
 			
 			if(os.indexOf("win")>=0) {
+				propi = CommonUtilities.loadProperties(projectPath + 
+						"\\src\\main\\resources\\creds.properties");
+				
 				if(propBrowser.contentEquals("chrome")) {
 					
 					ChromeOptions op = new ChromeOptions();
 					
+					/*
 					Proxy proxy = new Proxy();
 					proxy.setHttpProxy(http_proxy);
 					proxy.setSslProxy(https_proxy);
 					
 					op.setCapability(CapabilityType.PROXY, proxy);
-					
+					*/
 					System.setProperty("webdriver.chrome.driver", 
 							projectPath + "\\drivers\\chromedriver\\chromedriver-77.exe");
 					
@@ -155,11 +164,13 @@ public class BasePage {
 						propBrowser.contentEquals("firefox")) {
 					FirefoxOptions dc = new FirefoxOptions();
 					
+					/*
 					Proxy proxy = new Proxy();
 					proxy.setHttpProxy(http_proxy);
 					proxy.setSslProxy(https_proxy);
 					
 					dc.setCapability(CapabilityType.PROXY, proxy);
+					*/
 					
 					FirefoxProfile profile = new FirefoxProfile();
 					profile.setAcceptUntrustedCertificates(false);
@@ -172,8 +183,8 @@ public class BasePage {
 					
 					System.setProperty("webdriver.gecko.driver", 
 							projectPath + "\\drivers\\firefox\\geckodriver.exe");
-					System.setProperty("webdriver.firefox.marionette", 
-							projectPath + "\\drivers\\firefox\\geckodriver.exe");
+					//System.setProperty("webdriver.firefox.marionette", 
+					//		projectPath + "\\drivers\\firefox\\geckodriver.exe");
 					driver = new FirefoxDriver(dc);
 				}
 				else if (propBrowser.contentEquals("ie") || 
@@ -187,14 +198,19 @@ public class BasePage {
 				}	
 			}
 			else if((os.indexOf("nux")>=0) || (os.indexOf("nix")>=0)) {
+				propi = CommonUtilities.loadProperties(projectPath + 
+						"/src/main/resources/creds.properties");
+				
 				if(propBrowser.contentEquals("chrome")) {
 					ChromeOptions op = new ChromeOptions();
 					
+					/*
 					Proxy proxy = new Proxy();
 					proxy.setHttpProxy(http_proxy);
 					proxy.setSslProxy(https_proxy);
 					
 					op.setCapability(CapabilityType.PROXY, proxy);
+					*/
 					
 					System.setProperty("webdriver.chrome.driver", 
 							projectPath + "/drivers/chromedriver/chromedriver");
@@ -205,11 +221,13 @@ public class BasePage {
 						propBrowser.contentEquals("firefox")) {
 					FirefoxOptions dc = new FirefoxOptions();
 					
+					/*
 					Proxy proxy = new Proxy();
 					proxy.setHttpProxy(http_proxy);
 					proxy.setSslProxy(https_proxy);
 					
 					dc.setCapability(CapabilityType.PROXY, proxy);
+					*/
 					
 					FirefoxProfile profile = new FirefoxProfile();
 					profile.setAcceptUntrustedCertificates(false);
@@ -222,9 +240,10 @@ public class BasePage {
 					dc.setCapability("marionette", true);
 					
 					System.setProperty("webdriver.gecko.driver", 
-							projectPath + "\\drivers\\firefox\\geckodriver.exe");
-					System.setProperty("webdriver.firefox.marionette", 
-							projectPath + "\\drivers\\firefox\\geckodriver.exe");
+							projectPath + "/drivers/firefox/geckodriver");
+					
+					//System.setProperty("webdriver.firefox.marionette", 
+					//		projectPath + "\\drivers\\firefox\\geckodriver.exe");
 					driver = new FirefoxDriver(dc);
 				}
 				else {
@@ -232,6 +251,9 @@ public class BasePage {
 				}
 			}
 			else if((os.indexOf("mac")>=0) || (os.indexOf("darwin")>=0)) {
+				propi = CommonUtilities.loadProperties(projectPath + 
+						"/src/main/resources/creds.properties");
+				
 				if(propBrowser.trim().contentEquals("chrome")) {
 					ChromeOptions op = new ChromeOptions();
 					
