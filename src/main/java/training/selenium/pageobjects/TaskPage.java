@@ -16,9 +16,8 @@ public class TaskPage extends BasePage {
 	WebElement eleAddTaskButton;
 	WebElement eleDetails;
 	
-	By byMessageHeader = By.cssSelector(".section_header");
+	By byListHolder = By.cssSelector("#list_holder");
 	By byAddTaskLink= By.cssSelector(".agenda_add_task > a");
-	//By byFillTaskText = By.cssSelector("div.public-DraftEditorPlaceholder-root");
 	
 	By byFillTaskText= By.xpath("//div[@role=\'textbox\']");
 	
@@ -29,13 +28,16 @@ public class TaskPage extends BasePage {
 		super(driver);
 	}
 	
-	public boolean getMessageHeader() {
-		Log.info("Message Header is displayed");
-		ele = getElement(byMessageHeader,3);
+	public boolean getListHolder() {
+		Log.info("List Holder is displayed");
+		ele = getElement(byListHolder,3);
+		
+		if (ele == null) return false;
+		
 		CommonUtilities.sleepByNSeconds(3);
 		
 		CommonUtilities.takeScreenshot(driver, pathScreenshots, "TaskMessageHeader");
-		return ele.isDisplayed();
+		return isElementVisible(ele);
 	}
 	
 	public boolean addTask(String value) {
@@ -64,6 +66,6 @@ public class TaskPage extends BasePage {
 		
 		CommonUtilities.takeScreenshot(driver, pathScreenshots, "GetTaskElements");
 		
-		return eleDetails.isDisplayed();
+		return isElementVisible(eleDetails);
 	}
 }

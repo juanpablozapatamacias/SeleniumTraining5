@@ -15,10 +15,12 @@ public class LoginPage extends BasePage {
 	
 	By byUsernameField = By.cssSelector("#email");
 	By byPasswordField = By.cssSelector("#password");
-	By bySubmit = By.cssSelector("body:nth-child(2) "
-			+ "div.login_singup_form.content:nth-child(1) "
-			+ "form:nth-child(4) > button.submit_btn.ist_button.ist_button_red.sel_login:nth-child(10)");
+	//By bySubmit = By.cssSelector("body:nth-child(2) "
+	//		+ "div.login_singup_form.content:nth-child(1) "
+	//		+ "form:nth-child(4) > button.submit_btn.ist_button.ist_button_red.sel_login:nth-child(10)");
 
+	By bySubmit = By.cssSelector(".submit_btn");
+	
 	public LoginPage(WebDriver driver) {
 		super(driver);
 	}

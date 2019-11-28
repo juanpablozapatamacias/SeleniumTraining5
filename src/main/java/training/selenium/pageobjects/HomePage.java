@@ -27,6 +27,12 @@ public class HomePage extends BasePage {
 		CommonUtilities.sleepByNSeconds(1);
 	}
 	
+	public boolean isLoginFrameVisible() {
+		ele = getElement(byLoginPageFrame,5);
+		if(this.isElementVisible(ele))return true;
+		return false;
+	}
+	
 	public LoginPage switchToLoginFrame() {
 		Log.info("Switch to Login page in a frame");
 		frame = getElement(byLoginPageFrame,3);
@@ -37,6 +43,4 @@ public class HomePage extends BasePage {
 		CommonUtilities.takeScreenshot(driver, pathScreenshots, "HomePage");
 		return new LoginPage(driver);
 	}
-	
-
 }
